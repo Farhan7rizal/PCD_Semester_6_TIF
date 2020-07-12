@@ -227,18 +227,13 @@ namespace ProjectPCD1
                 }
 
                 var img = imgInput;
-                var img2 = imgInput;
+                
                 imgOut = new Image<Gray, byte>(imgInput.Width, imgInput.Height, new Gray(0));
-                imgOut2 = new Image<Gray, byte>(imgInput.Width, imgInput.Height, new Gray(0));
-                //Canny method return a byte Variable
-                Image<Gray, byte> imgCanny = new Image<Gray, byte>(imgInput.Width, imgInput.Height, new Gray(0));
-                //new Gray(0) is zero values
-                imgCanny = imgInput.Canny(125, 50);
-                pictureBox2.Image = imgCanny.Bitmap;
+                
 
                 var gray = imgInput.Convert<Gray, byte>().ThresholdBinaryInv(new Gray(140), new Gray(255));
                 var gray2 = imgInput.Convert<Gray, byte>().ThresholdBinaryInv(new Gray(140), new Gray(255));
-                //var gray = imgCanny.Convert<Gray, byte>().ThresholdBinaryInv(new Gray(125), new Gray(255));
+                
 
                 //Contours
                 VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
@@ -349,7 +344,7 @@ namespace ProjectPCD1
                 }
                 
                 pictureBox2.Image = img.Bitmap;
-                imageBox1.Image = img;
+                
             }
             catch(Exception ex)
             {
